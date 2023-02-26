@@ -4,39 +4,17 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
 # pnpm
 pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
+pnpm run dev
 npm run preview
+pnpm run generate
 ```
+
+## Common problems
+
+### How to import components into .tsx format components
+The default VSC import method using ~~/.nuxt/components results in an error. Solution is to address with #components which is defined in tsconfig.json.
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
