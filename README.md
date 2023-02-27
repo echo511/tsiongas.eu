@@ -14,6 +14,14 @@ pnpm run generate
 
 ## Common problems
 
+Po instalaci tailwindcss a registrování jako modulu psalo "No utility classes were detected in your source files". Ve výchozí configuraci se nevyhledává v .tsx formátu komponent!
+
+## Inspiration
+
+Main idea came from my dear friend's online contact card http://sodae.cz/
+
+Design is party inspired by https://spotlight.tailwindui.com/
+
 ### How to import components into .tsx format components
 The default VSC import method using ~~/.nuxt/components results in an error. Solution is to address with #components which is defined in tsconfig.json.
 
