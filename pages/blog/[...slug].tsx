@@ -1,8 +1,9 @@
-import { Header, ContentRenderer } from "#components"
+import { ContentRenderer } from "#components"
 
 
 export default defineComponent({
     async setup() {
+
         let slug: string
         const params = useRoute().params
         if (Array.isArray(params.slug)) {
