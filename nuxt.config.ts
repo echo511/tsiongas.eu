@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       content: [
         "./pages/**/*.tsx",
         "./components/**/*.tsx",
+        "./layouts/**/*.tsx",
       ],
     },
   },
