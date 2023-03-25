@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     "@nuxt/content",
+    "@nuxt/image-edge",
     "@nuxtjs/tailwindcss",
   ],
   tailwindcss: {
@@ -11,5 +12,13 @@ export default defineNuxtConfig({
         "./components/**/*.tsx",
       ],
     },
+  },
+  runtimeConfig: {
+    ipx: {
+      dir: "../../assets",
+    },
+  },
+  image: {
+    dir: "assets",
   },
 });
