@@ -3,14 +3,18 @@ lockfileVersion: 5.4
 specifiers:
   '@nuxt/content': ^2.5.2
   '@nuxt/image-edge': 1.0.0-27991759.1a5eea1
+  '@nuxtjs/robots': ^3.0.0
   '@nuxtjs/tailwindcss': ^6.6.4
   nuxt: ^3.3.2
+  nuxt-simple-sitemap: ^2.2.0
 
 devDependencies:
   '@nuxt/content': 2.5.2
   '@nuxt/image-edge': 1.0.0-27991759.1a5eea1
+  '@nuxtjs/robots': 3.0.0
   '@nuxtjs/tailwindcss': 6.6.4_webpack@5.76.3
   nuxt: 3.3.2
+  nuxt-simple-sitemap: 2.2.0
 
 packages:
 
@@ -1001,6 +1005,16 @@ packages:
       - vue-tsc
     dev: true
 
+  /@nuxtjs/robots/3.0.0:
+    resolution: {integrity: sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==}
+    dependencies:
+      '@nuxt/kit': 3.3.2
+      h3: 1.6.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /@nuxtjs/tailwindcss/6.6.4_webpack@5.76.3:
     resolution: {integrity: sha512-Lpgb1EmbHP6URHpi5D373BoNHBnODfnSstZk88SfrJ0r94r4jUaixtmSwLj9ot0wpO3Adz85RIg468/sCc4nAw==}
     dependencies:
@@ -1205,13 +1219,13 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.21.3
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/8.21.3:
     resolution: {integrity: sha512-fa7GkppZVEByMWGbTtE5MbmXWJTVbrjjaS8K6uQj+XtuuUv1fsuPAxhygfqLmsb/Ufb3CV8deFCpiMfAgi00Sw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: true
 
@@ -1243,8 +1257,8 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node/18.15.9:
-    resolution: {integrity: sha512-dUxhiNzBLr6IqlZXz6e/rN2YQXlFgOei/Dxy+e3cyXTJ4txSUbGT2/fmnD6zd/75jDMeW5bDee+YXxlFKHoV0A==}
+  /@types/node/18.15.10:
+    resolution: {integrity: sha512-9avDaQJczATcXgfmMAW3MIWArOO7A+m90vuCFLr8AotWf8igO/mRoYukrk2cqZVtv38tHs33retzHEilM7FpeQ==}
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -3614,7 +3628,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.15.9
+      '@types/node': 18.15.10
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
@@ -4701,6 +4715,22 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /nuxt-simple-sitemap/2.2.0:
+    resolution: {integrity: sha512-8BN9H4LFxYY8SGFDG8mhMNpBjh0IawsCwmry2Zhb1ynzdIy5sz6Fr+J864XJxbKX7u/tIsWdkVbnr2ch+kM4iw==}
+    dependencies:
+      '@nuxt/kit': 3.3.2
+      chalk: 5.2.0
+      defu: 6.1.2
+      escape-string-regexp: 5.0.0
+      knitwork: 1.0.0
+      pathe: 1.1.0
+      radix3: 1.0.0
+      ufo: 1.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /nuxt/3.3.2:

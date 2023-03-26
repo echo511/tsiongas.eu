@@ -1,9 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+
+import { NuxtConfig } from "nuxt/schema";
+
+let config: NuxtConfig = {
   modules: [
     "@nuxt/content",
     "@nuxt/image-edge",
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/robots",
+    "nuxt-simple-sitemap",
   ],
   tailwindcss: {
     config: {
@@ -22,4 +27,16 @@ export default defineNuxtConfig({
   image: {
     dir: "assets",
   },
-});
+  sitemap: {
+    trailingSlash: true,
+  },
+  robots: {
+    configPath: "robots.config.ts"
+  },
+}
+
+if (process.env.SITE_URL) {
+  config.sitemap.siteUrl = process.env.SITE_URL;
+}
+
+export default defineNuxtConfig(config);

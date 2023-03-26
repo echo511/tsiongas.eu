@@ -10,7 +10,9 @@
   "devDependencies": {
     "@nuxt/content": "^2.5.2",
     "@nuxt/image-edge": "1.0.0-27991759.1a5eea1",
+    "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.6.4",
-    "nuxt": "^3.3.2"
+    "nuxt": "^3.3.2",
+    "nuxt-simple-sitemap": "^2.2.0"
   }
 }
