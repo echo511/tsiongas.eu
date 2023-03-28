@@ -1,5 +1,40 @@
 import { NuxtImg, NuxtLink } from "#components";
 
+// Keep homepage assets small! Import on demand!
+const importPgp = async () => (await import('../utils/usePgp')).default
+
+const ContactForm = defineComponent({
+    setup() {
+        const subjectRef = ref('');
+        const messageRef = ref('');
+
+        const sendMail = async () => {
+            const mail = 'ntsiongas' + '@' + 'gmail.com';
+            const subjectEncoded = encodeURIComponent(subjectRef.value); // encode subject
+            const message = await (await importPgp()).encrypt(messageRef.value);
+            const messageEncoded = encodeURIComponent(message); // encode message
+            const mailtoLink = `mailto:${mail}?subject=${subjectEncoded}&body=${messageEncoded}`;
+            window.open(mailtoLink); // open email client
+        }
+
+        return () =>
+            <>
+                <label class="text-white block font-bold">
+                    <span class="block mb-2">Předmět:</span>
+                    <input v-model={subjectRef.value} type="text" class="w-full px-4 py-2 font-mono text-rose-900 bg-white opacity-00 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="15" />
+                </label>
+                <label class="text-white block font-bold">
+                    <span class="block mb-2">Text k zašifrování:</span>
+                    <textarea onFocus={importPgp} v-model={messageRef.value} class="w-full px-4 py-2 font-mono bg-white opacity-90 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="15"></textarea>
+                </label>
+                <div class=" ml-auto">
+                    <button onClick={sendMail} class="hover:bg-rose-500 bg-rose-900 text-white font-bold px-4 py-2 rounded">
+                        Zašifrovat a odeslat e-mailem
+                    </button>
+                </div>
+            </>
+    }
+});
 
 export default defineComponent({
     setup() {
@@ -78,16 +113,6 @@ export default defineComponent({
             });
         }
 
-        const subjectRef = ref('');
-        const messageRef = ref('');
-        const sendMail = () => {
-            const mail = 'ntsiongas' + '@' + 'gmail.com';
-            const subjectEncoded = encodeURIComponent(subjectRef.value); // encode subject
-            const messageEncoded = encodeURIComponent(messageRef.value); // encode message
-            const mailtoLink = `mailto:${mail}?subject=${subjectEncoded}&body=${messageEncoded}`;
-            window.open(mailtoLink); // open email client
-        }
-
         return () =>
             <div class="flex flex-col">
                 <div class="snap-center w-full h-screen grid place-items-center bg-stone-900">
@@ -164,19 +189,7 @@ export default defineComponent({
                         <div id="kontakt" class="h-screen grid place-items-center">
                             <div class="flex flex-col space-y-10 w-4/6">
                                 <h2 class="font-bold text-white text-5xl text-center">Bezpečný kontakt</h2>
-                                <label class="text-white block font-bold">
-                                    <span class="block mb-2">Předmět:</span>
-                                    <input v-model={subjectRef.value} type="text" class="w-full px-4 py-2 font-mono text-rose-900 bg-white opacity-00 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="15" />
-                                </label>
-                                <label class="text-white block font-bold">
-                                    <span class="block mb-2">Text k zašifrování:</span>
-                                    <textarea v-model={messageRef.value} class="w-full px-4 py-2 font-mono bg-white opacity-90 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="15"></textarea>
-                                </label>
-                                <div class=" ml-auto">
-                                    <button onClick={sendMail} class="hover:bg-rose-500 bg-rose-900 text-white font-bold px-4 py-2 rounded">
-                                        Zašifrovat a odeslat e-mailem
-                                    </button>
-                                </div>
+                                <ContactForm />
                             </div>
                         </div>
                     </div>
@@ -184,4 +197,3 @@ export default defineComponent({
             </div>
     }
 });
-
