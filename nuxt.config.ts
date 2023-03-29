@@ -4,7 +4,6 @@ import { NuxtConfig } from "nuxt/schema";
 
 let config: NuxtConfig & { sitemap: {} } = {
   modules: [
-    "@nuxt/content",
     "@nuxt/image-edge",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/robots",
