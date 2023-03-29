@@ -61,7 +61,7 @@ export default defineComponent(() => {
         title: string,
         link: string,
         image: string,
-    }, ReturnType<typeof ref>][] = [
+    }, Ref<boolean>][] = [
         {
             title: 'Programming',
             link: '/',
@@ -138,17 +138,17 @@ export default defineComponent(() => {
                                         classes += passiveClasses
                                     }
 
-                                    const setActive = () => console.log('active'); ref.value = true
-                                    const setPassive = () => console.log('passive'); ref.value = false
+                                    const setActive = () => ref.value = true
+                                    const setPassive = () => ref.value = false
 
-                                    return <>
-                                        <NuxtLink  href={image.link} class='flex flex-col text-stone-800 hover:text-white'>
+                                    return <div onMouseenter={setActive} onMouseleave={setPassive} class='flex flex-col text-stone-800 hover:text-white'>
+                                        <NuxtLink href={image.link} >
                                             <NuxtImg src={image.image} width={176} height={176} alt={image.title} class={classes} />
                                             <div class='block my-5 text-1xl font-italic font-sans text-center text-white'>
                                                 {image.title}
                                             </div>
                                         </NuxtLink>
-                                    </>
+                                    </div>
                                 })}
                             </div>
                             <button onClick={scroll.toAnchor('Kontakt')} aria-label="Zájmy" class="block mx-auto w-24 h-24">
