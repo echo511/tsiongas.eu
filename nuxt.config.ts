@@ -2,7 +2,7 @@
 
 import { NuxtConfig } from "nuxt/schema";
 
-let config: NuxtConfig = {
+let config: NuxtConfig & { sitemap: {} } = {
   modules: [
     "@nuxt/content",
     "@nuxt/image-edge",

@@ -2,19 +2,20 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "check": "nuxi typecheck",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.5.2",
     "@nuxt/image-edge": "1.0.0-27991759.1a5eea1",
     "@nuxtjs/robots": "^3.0.0",
-    "@nuxtjs/tailwindcss": "^6.6.4",
+    "@nuxtjs/tailwindcss": "^6.6.5",
     "@types/openpgp": "^4.4.18",
     "nuxt": "^3.3.2",
     "nuxt-simple-sitemap": "^2.2.0",
-    "openpgp": "^5.7.0"
+    "openpgp": "^5.7.0",
+    "utility-types": "^3.10.0"
   }
 }
