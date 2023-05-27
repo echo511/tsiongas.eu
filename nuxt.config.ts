@@ -16,6 +16,12 @@ let config: NuxtConfig & { sitemap: {} } = {
         "./components/**/*.tsx",
         "./layouts/**/*.tsx",
       ],
+      theme: {
+        screens: {
+          'tablet': '640px',
+          'desktop': '1280px',
+        },
+      }
     },
   },
   runtimeConfig: {
