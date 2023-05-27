@@ -93,70 +93,66 @@ export default defineComponent(() => {
         <div class="flex flex-col">
             <div class="snap-center w-full h-screen grid place-items-center bg-stone-900">
                 <div class="flex flex-col flex-nowrap  w-full bg-stone-900">
-                    <Vizitka class="h-screen grid place-items-center">
-                        <div>
-                            <div class="my-20">
-                                <h1 class="font-bold text-white text-5xl">Nikolas Tsiongas</h1>
-                                <div class="text-rose-500">Programmer, medicus...</div>
+                    <Vizitka class="min-h-screen flex flex-row">
+                        <div class="flex flex-row gap-x-32 mx-auto">
+                            <div class="my-auto flex flex-col gap-14 place-items-center">
+                                <div>
+                                    <h1><span class="text-5xl font-bold text-rose-600 uppercase">Tsiongas</span> <span class="text-5xl text-white lowercase ml-2.5">Nikolas</span></h1>
+                                </div>
+                                <div class="text-white">ntsiongas@gmail.com</div>
+                                <div class="hidden">
+                                    <ul class="flex justify-center space-x-4">
+                                        <li>
+                                            <a target="_blank" href="https://github.com/echo511/" class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium">Github</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://twitter.com/ntsiongas/" class="bg-[#00acee] hover:bg-blue-500 text-white px-3 py-2 rounded-md text-sm font-medium">@ntsiongas</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://www.linkedin.com/in/nikolas-tsiongas-52896887/" class="bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-md text-sm font-medium">LinkedIn</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="mt-5 flex justify-center space-x-4">
+                                        <li>
+                                            <a target="_blank" href="/" onclick="document.location='mailto:'+'ntsiongas'+'@'+'gmail.com'" class="bg-rose-900 hover:bg-rose-500 text-white px-3 py-2 rounded-md text-sm font-medium">ntsiongas@gmail.com</a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="#kontakt" onClick={scroll.toAnchor('Kontakt')} class="bg-rose-900 hover:bg-rose-500 text-white px-3 py-2 rounded-md text-sm font-medium">Poslat tajnosti (Bezpečný kontakt)</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button onClick={scroll.toAnchor('Zajmy')} aria-label="Zájmy"><Arrow /></button>
                             </div>
-                            <ul class="mt-10 flex justify-center space-x-4">
-                                <li>
-                                    <a target="_blank" href="https://github.com/echo511/" class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium">Github</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://twitter.com/ntsiongas/" class="bg-[#00acee] hover:bg-blue-500 text-white px-3 py-2 rounded-md text-sm font-medium">Twitter</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://www.linkedin.com/in/nikolas-tsiongas-52896887/" class="bg-blue-800 hover:bg-blue-900 text-white px-3 py-2 rounded-md text-sm font-medium">LinkedIn</a>
-                                </li>
-                            </ul>
-                            <ul class="mt-10 flex justify-center space-x-4">
-                                <li>
-                                    <a target="_blank" href="/" onclick="document.location='mailto:'+'ntsiongas'+'@'+'gmail.com'" class="bg-rose-900 hover:bg-rose-500 text-white px-3 py-2 rounded-md text-sm font-medium">Email</a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="#kontakt" onClick={scroll.toAnchor('Kontakt')} class="bg-rose-900 hover:bg-rose-500 text-white px-3 py-2 rounded-md text-sm font-medium">Poslat tajnosti (Bezpečný kontakt)</a>
-                                </li>
-                            </ul>
-                            <button onClick={scroll.toAnchor('Zajmy')} aria-label="Zájmy" class="block mt-10 mx-auto w-24 h-24">
-                                <Arrow />
-                            </button>
                         </div>
                     </Vizitka>
-                    <Zajmy class="h-screen grid place-items-center">
+                    <Zajmy class="min-h-screen grid place-items-center">
                         <div class="flex flex-col space-y-10">
-                            <h2 class="font-bold text-white text-5xl text-center">Zájmy</h2>
-                            <div class="flex flex-col md:flex-row flex-nowrap place-content-center gap-8">
-                                {zajmy.map(([image, ref]) => {
+                            <div class="flex flex-row flex-wrap place-content-center gap-8">
+                                {() => {
                                     let classes = 'mx-auto md:m-0 w-32 h-32 rounded-xl transition duration-200'
-                                    const passiveClasses = ' opacity-50 rotate-0 scale-95 transition'
-                                    const activeClasses = ' opacity-100 rotate-45 scale-[0.6] transition'
+                                    const passiveClasses = classes + ' opacity-50 rotate-0 scale-95'
+                                    const activeClasses = classes + ' opacity-100 rotate-45 scale-[0.6]'
 
-                                    if (ref.value) {
-                                        classes += activeClasses
-                                    } else {
-                                        classes += passiveClasses
-                                    }
-
-                                    const setActive = () => ref.value = true
-                                    const setPassive = () => ref.value = false
-
-                                    return <div onMouseenter={setActive} onMouseleave={setPassive} class='flex flex-col text-stone-800 hover:text-white'>
-                                        <NuxtLink href={image.link} >
-                                            <NuxtImg src={image.image} width={176} height={176} alt={image.title} class={classes} />
-                                            <div class='block my-5 text-1xl font-italic font-sans text-center text-white'>
-                                                {image.title}
-                                            </div>
-                                        </NuxtLink>
-                                    </div>
-                                })}
+                                    return zajmy.map(([image, state]) => {
+                                        const resolvedClasses = state.value ? activeClasses : passiveClasses
+                                        const titleClasses = 'block my-2 text-center ' + (state.value ? ' font-bold text-rose-500' : ' font-normal text-white')
+                                        return <div onMouseenter={() => state.value = true} onMouseleave={() => state.value = false} class='flex flex-col text-stone-800 hover:text-white'>
+                                            <NuxtLink href={image.link} >
+                                                <NuxtImg src={image.image} width={176} height={176} alt={image.title} class={resolvedClasses} />
+                                                <div class={titleClasses}>
+                                                    {image.title}
+                                                </div>
+                                            </NuxtLink>
+                                        </div>
+                                    })
+                                }}
                             </div>
                             <button onClick={scroll.toAnchor('Kontakt')} aria-label="Zájmy" class="block mx-auto w-24 h-24">
                                 <Arrow />
                             </button>
                         </div>
                     </Zajmy>
-                    <Kontakt class="h-screen grid place-items-center">
+                    <Kontakt class="min-h-screen grid place-items-center">
                         <div class="flex flex-col space-y-10 w-4/6">
                             <h2 class="font-bold text-white text-5xl text-center">Bezpečný kontakt</h2>
                             <ContactForm />
