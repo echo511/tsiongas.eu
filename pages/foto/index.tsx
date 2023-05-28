@@ -59,7 +59,7 @@ const OnePhoto = defineComponent({
             ]);
 
             return <>
-                <div class="max-w-7xl mx-auto p-4">
+                <div class="max-w-full mx-auto">
                     <div class="flex flex-col desktop:flex-row rounded-lg overflow-hidden">
                         {image}
                         <div class="flex-1 p-4 bg-stone-800">
@@ -78,7 +78,7 @@ const Gallery = (title: string, photos: PhotoMeta[]) => {
         const generatePictureSquareThumbnail = (photo: PhotoMeta) => {
             const link = useImage()(photo.image)
             return (
-                h('div', { class: 'w- my-5' }, [ // wrapper needed for rounded corners, wrapper has more height in grid
+                h('div', { class: 'my-5' }, [ // wrapper needed for rounded corners, wrapper has more height in grid
                     h('a', { href: link, class: 'block rounded-lg overflow-hidden hover:opacity-80', target: '_blank' }, [
                         h(NuxtImg, {
                             src: photo.image,
@@ -94,7 +94,7 @@ const Gallery = (title: string, photos: PhotoMeta[]) => {
         };
 
         return () => (
-            <div class="m-4 p-4  bg-stone-800 rounded-lg overflow-hidden">
+            <div class="p-4  bg-stone-800 rounded-lg overflow-hidden">
                 <h2 class="text-2xl font-bold mb-4">{title}</h2>
                 <div class="columns-1 tablet:columns-3 desktop:columns-4">
                     {photos.map((photo) => generatePictureSquareThumbnail(photo))}
@@ -122,8 +122,8 @@ const FranceGallery = () => {
 export default defineComponent({
     setup() {
         return () => (
-            <div class="py-10 flex flex-col space-y-10">
-                <div class="max-w-5xl mx-auto px-7 py-5 bg-stone-800 rounded-lg">
+            <div class="p-4 flex flex-col space-y-4">
+                <div class="max-w-5xl mx-auto p-4 bg-stone-800 rounded-lg">
                     <h1 class="text-2xl font-bold mb-4">Fotografie</h1>
                     <p class="mb-4">Mé amatérské zájmy v oblasti fotografie byly založeny na mém studiu středoškolské optiky. Od té doby jsem se začal více zajímat o různé druhy fotografování, zejména o:</p>
 
