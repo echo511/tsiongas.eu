@@ -125,6 +125,10 @@ const FranceGallery = () => {
 
 export default defineComponent({
     setup() {
+        useSeoMeta({
+            description: 'Zaměřuji se na architekturu, noční fotografování a makrofotografii. Mým zájmem o tyto oblasti bylo inspirováno studiem středoškolské optiky. Fotografování architektury mi umožňuje zachytit krásu a jedinečnost různých staveb a architektonických prvků.'
+        })
+
         return () => (
             <div>
                 <HeaderBar header="Fotografie" />

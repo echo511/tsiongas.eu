@@ -6,7 +6,11 @@ export default defineComponent({
         useSeoMeta({
             description: 'Koagulace a koagulační kaskáda jsou důležitými procesy v lidském těle, které zajišťují srážení krve. V tomto článku se dozvíte více o modelu iniciace a propagace koagulace. Zjistíte, jak tyto procesy probíhají a jaký mají vliv na zdraví člověka.',
         });
+
         useHead({
+            meta: [
+                { name: 'robots', content: 'noindex, nofollow' }
+            ],
             link: [
                 { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' },
                 { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css' },
