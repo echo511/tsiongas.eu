@@ -5,10 +5,11 @@ export default defineComponent({
     setup() {
         const links = [
             { to: '/', title: 'Vizitka' },
-            { to: '/pkm/', title: 'Personal Knowledge Management (PKM)' },
             { to: '/medical/koagulace/', title: 'Koagulační kaskáda' },
             { to: '/foto/', title: 'Fotografie' },
+            { to: '/pkm/', title: 'Personal Knowledge Management (PKM)' },
             { to: '/o-webu/', title: 'O webu' },
+            { to: '/#Kontakt', title: 'Kontakt' },
         ]
 
         // Resolve active state
