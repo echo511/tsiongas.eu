@@ -8,12 +8,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "dependencies": {
-    "@nuxt/kit": "link:@nuxt/kit-edge@latest",
-    "fs": "0.0.1-security",
-    "image-size": "^1.0.2"
-  },
   "devDependencies": {
+    "fs": "0.0.1-security",
+    "image-size": "^1.0.2",
+    "@nuxt/kit": "link:@nuxt/kit-edge@latest",
     "@nuxt/image-edge": "1.0.0-28085504.69f8eb0",
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.7.0",
