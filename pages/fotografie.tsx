@@ -92,8 +92,8 @@ const Gallery = (title: string, photos: PhotoMeta[]) => {
                             src: photo.image,
                             alt: photo.title,
                             sizes: screenSizes,
-                            // width: photo.width,
-                            // height: photo.height,
+                            width: photo.width,
+                            height: photo.height,
                             loading: "lazy",
                         })
                     ])
