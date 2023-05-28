@@ -18,6 +18,10 @@ export default defineComponent({
         const smMenuActive = ref(false)
         const smMenuActiveToggle = () => smMenuActive.value = !smMenuActive.value
 
+        useRouter().beforeEach(() => {
+            smMenuActive.value = false
+        })
+
         return () =>
             <nav class="bg-rose-900">
                 <div class="max-w-7xl mx-auto p-4">
