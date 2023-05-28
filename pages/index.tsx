@@ -89,7 +89,7 @@ export default defineComponent(() => {
                     <div class="text-center">
                         <h1><span class="text-5xl font-bold text-rose-600 uppercase">Tsiongas</span> <span class="text-5xl text-white lowercase ml-2.5">Nikolas</span></h1>
                     </div>
-                    <ul class="my-5 grid gap-5 text-center tablet:my-11 tablet:grid-cols-4">
+                    <ul class="my-5 flex flex-col tablet:flex-row gap-4 text-center tablet:my-11">
                         <li>
                             <a target="_blank" href="https://github.com/echo511/" class="bg-gray-900 hover:bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium">Github</a>
                         </li>
@@ -134,7 +134,7 @@ export default defineComponent(() => {
                 </div>
             </Zajmy>
             <Kontakt class="min-h-screen grid place-items-center">
-                <div class="flex flex-col space-y-4 p-4">
+                <div class="tablet:w-2/3 flex flex-col space-y-4 p-4">
                     <h2 class="text-white text-5xl text-center">Bezpečný kontakt</h2>
                     <ContactForm />
                 </div>
