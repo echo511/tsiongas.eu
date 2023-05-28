@@ -52,7 +52,7 @@ export default defineNuxtModule({
 
     const dst = resolve(nuxt.options.buildDir, 'gallery-module.ts');
 
-    const path = nuxt.options.rootDir + "/assets/photo";
+    const path = nuxt.options.rootDir + "/public/galleries/2023_France"; // TODO Support subgaleries.
     const images = createMap(path);
 
     const getContents = () => convertMapToTemplate(images)
@@ -72,7 +72,6 @@ export default defineNuxtModule({
             as: 'useGalleries',
             from: dst,
         })
-        console.log(imports)
     })
   },
 });

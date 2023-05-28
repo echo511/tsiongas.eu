@@ -26,11 +26,11 @@ let config: NuxtConfig & { sitemap: {} } = {
   },
   runtimeConfig: {
     ipx: {
-      dir: "../../assets",
+      dir: "../../public",
     },
   },
   image: {
-    dir: "assets",
+    dir: "public",
     screens: {
       mobile: 640,
       tablet: 1280,

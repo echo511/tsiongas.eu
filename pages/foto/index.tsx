@@ -20,13 +20,13 @@ type PhotoCollection = {
 const photos: PhotoCollection = {
     makroVidlicka: {
         title: 'Vidlička',
-        image: '/photo/vidlicka.jpeg',
+        image: '/photos/vidlicka.jpeg',
         width: 1216,
         height: 864,
     },
     vazka: {
         title: 'Vážka',
-        image: '/photo/vazka.jpeg',
+        image: '/photos/vazka.jpeg',
         width: 1216,
         height: 864,
     }
@@ -108,7 +108,7 @@ const FranceGallery = () => {
     const photos = useGalleries().map((photo) => {
         return {
             title: photo.filename,
-            image: `photo/${photo.filename}`,
+            image: `/galleries/2023_France/${photo.filename}`,
             width: photo.width,
             height: photo.height,
         }

@@ -42,10 +42,10 @@ export default defineComponent({
                         <h2 class="mt-20 text-4xl w-full pb-5 border-b-2 border-stone-800 font-bold mb-4 text-center">Použité technologie</h2>
                         <div class="mt-10 mb-5 flex flex-row justify-center items-center">
                             {[
-                                { src: '/o-webu/typescript.svg', alt: 'TypeScript', link: 'https://www.typescriptlang.org/' },
-                                { src: '/o-webu/nuxt3.svg', alt: 'Nuxt 3', link: 'https://nuxtjs.org/' },
-                                { src: '/o-webu/tailwind-css.svg', alt: 'Tailwind CSS', link: 'https://tailwindcss.com/' },
-                                { src: '/o-webu/chatgpt.svg', alt: 'ChatGPT', link: 'https://openai.com/' }
+                                { src: '/images/o-webu/typescript.svg', alt: 'TypeScript', link: 'https://www.typescriptlang.org/' },
+                                { src: '/images/o-webu/nuxt3.svg', alt: 'Nuxt 3', link: 'https://nuxtjs.org/' },
+                                { src: '/images/o-webu/tailwind-css.svg', alt: 'Tailwind CSS', link: 'https://tailwindcss.com/' },
+                                { src: '/images/o-webu/chatgpt.svg', alt: 'ChatGPT', link: 'https://openai.com/' }
                             ].map((item) => {
                                 return <a target="_blank" href={item.link} class="w-1/4">
                                     {h(NuxtImg, { src: item.src, alt: item.alt, title: item.alt, class: "w-full max-h-14" })}

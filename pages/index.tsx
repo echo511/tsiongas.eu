@@ -63,22 +63,22 @@ export default defineComponent(() => {
         {
             title: 'Medical',
             link: '/medical/koagulace/',
-            image: '/medical.jpg',
+            image: '/images/medical.jpg',
         },
         {
             title: 'Foto',
             link: '/foto/',
-            image: '/photo.jpeg',
+            image: '/images/photo.jpeg',
         },
         {
             title: 'PKM',
             link: '/pkm/',
-            image: '/pkm.png',
+            image: '/images/pkm.png',
         },
         {
             title: 'O webu',
             link: '/o-webu/',
-            image: '/programming.jpg',
+            image: '/images/programming.jpg',
         },
     ].map((zajem) => [zajem, ref(false)]);
 
