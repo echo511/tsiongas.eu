@@ -32,13 +32,9 @@ let config: NuxtConfig & { sitemap: {} } = {
   image: {
     dir: "assets",
     screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-      '2xl': 1536
+      mobile: 640,
+      tablet: 1280,
+      desktop: 1920,
     },
   },
   sitemap: {
