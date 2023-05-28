@@ -62,7 +62,7 @@ export default defineComponent(() => {
     }, Ref<boolean>][] = [
         {
             title: 'Medical',
-            link: '/medical/koagulace/',
+            link: '/clanek/koagulace-a-koagulacni-kaskada/',
             image: '/images/medical.jpg',
         },
         {

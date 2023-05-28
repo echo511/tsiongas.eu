@@ -1,4 +1,3 @@
-import { Footer, Menu } from "#components";
 import HeaderBar from "~/components/HeaderBar";
 
 

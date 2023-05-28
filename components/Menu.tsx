@@ -5,7 +5,7 @@ export default defineComponent({
     setup() {
         const links = [
             { to: '/', title: 'Vizitka' },
-            { to: '/medical/koagulace/', title: 'Koagulační kaskáda' },
+            { to: '/clanek/koagulace-a-koagulacni-kaskada/', title: 'Koagulační kaskáda' },
             { to: '/fotografie/', title: 'Fotografie' },
             { to: '/pkm/', title: 'Personal Knowledge Management (PKM)' },
             { to: '/o-webu/', title: 'O webu' },
