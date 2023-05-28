@@ -115,8 +115,6 @@ const FranceGallery = () => {
         }
     })
 
-    console.log(photos);
-
     return Gallery('Francie', photos);
 }
 

@@ -67,7 +67,7 @@ export default defineComponent(() => {
         },
         {
             title: 'Foto',
-            link: '/foto/',
+            link: '/fotografie/',
             image: '/images/photo.jpeg',
         },
         {
