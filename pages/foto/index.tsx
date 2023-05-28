@@ -73,9 +73,9 @@ const OnePhoto = defineComponent({
     }
 });
 
-const Gallery = (title: string, photos: PhotoMinimal[]) => {
+const Gallery = (title: string, photos: PhotoMeta[]) => {
     return defineComponent(() => {
-        const generatePictureSquareThumbnail = (photo: PhotoMinimal) => {
+        const generatePictureSquareThumbnail = (photo: PhotoMeta) => {
             const link = useImage()(photo.image)
             return (
                 h('div', { class: 'w- my-5' }, [ // wrapper needed for rounded corners, wrapper has more height in grid
@@ -84,6 +84,9 @@ const Gallery = (title: string, photos: PhotoMinimal[]) => {
                             src: photo.image,
                             alt: photo.title,
                             sizes: "sm:300px md:340px lg:1280px lx:1920px",
+                            width: photo.width,
+                            height: photo.height,
+                            loading: "lazy",
                         })
                     ])
                 ])
@@ -93,7 +96,7 @@ const Gallery = (title: string, photos: PhotoMinimal[]) => {
         return () => (
             <div class="m-4 p-4  bg-stone-800 rounded-lg overflow-hidden">
                 <h2 class="text-2xl font-bold mb-4">{title}</h2>
-                <div class="columns-2 tablet:columns-3 desktop:columns-4">
+                <div class="columns-1 tablet:columns-3 desktop:columns-4">
                     {photos.map((photo) => generatePictureSquareThumbnail(photo))}
                 </div>
             </div>
@@ -102,13 +105,16 @@ const Gallery = (title: string, photos: PhotoMinimal[]) => {
 }
 
 const FranceGallery = () => {
-    const photos: PhotoMinimal[] = [];
-    for (let i = 1; i <= 20; i++) {
-        photos.push({
-            title: 'Vidlička',
-            image: '/photo/F - ' + i + '.jpeg',
-        })
-    }
+    const photos = useGalleries().map((photo) => {
+        return {
+            title: photo.filename,
+            image: `photo/${photo.filename}`,
+            width: photo.width,
+            height: photo.height,
+        }
+    })
+
+    console.log(photos);
 
     return Gallery('Francie', photos);
 }
