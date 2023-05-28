@@ -51,8 +51,9 @@ const OnePhoto = defineComponent({
             const link = useImage()(photoMeta.image)
 
             const image = h('div', { class: 'w-full desktop:w-1/3 max-h-64 overflow-hidden' }, [
-                h('a', { href: link, class: 'hover:opacity-80', target: '_blank' }, [
+                h('a', { href: link, class: '', target: '_blank' }, [
                     h(NuxtImg, {
+                        class: "hover:opacity-80",
                         src: photoMeta.image,
                         alt: photoMeta.title,
                     })
@@ -79,9 +80,10 @@ const Gallery = (title: string, photos: PhotoMeta[]) => {
         const generatePictureSquareThumbnail = (photo: PhotoMeta) => {
             const link = useImage()(photo.image)
             return (
-                h('div', { class: 'my-5' }, [ // wrapper needed for rounded corners, wrapper has more height in grid
+                h('div', { class: 'mb-4' }, [ // wrapper needed for rounded corners, wrapper has more height in grid
                     h('a', { href: link, class: 'block rounded-lg overflow-hidden hover:opacity-80', target: '_blank' }, [
                         h(NuxtImg, {
+                            class: "",
                             src: photo.image,
                             alt: photo.title,
                             sizes: "sm:300px md:340px lg:1280px lx:1920px",
