@@ -22,14 +22,14 @@ const ContactForm = defineComponent(() => {
         <>
             <label class="text-white">
                 <span class="block mb-2">Předmět:</span>
-                <input v-model={subjectRef.value} type="text" class="w-full px-4 py-2 font-mono text-rose-900 bg-white opacity-00 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="15" />
+                <input v-model={subjectRef.value} type="text" class="px-4 py-2 w-full font-mono bg-white opacity-00 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="15" />
             </label>
             <label class="text-white">
                 <span class="block mb-2">Text k zašifrování:</span>
-                <textarea onFocus={importPgp} v-model={messageRef.value} class="w-full font-mono bg-white opacity-90 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="10"></textarea>
+                <textarea onFocus={importPgp} v-model={messageRef.value} class="px-4 py-2 w-full font-mono bg-white opacity-90 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="10"></textarea>
             </label>
-            <div class=" ml-auto">
-                <button onClick={sendMail} class="hover:bg-rose-500 bg-rose-900 text-white font-bold px-4 py-2 rounded">
+            <div class="ml-auto">
+                <button onClick={sendMail} class="px-4 py-2 hover:bg-rose-500 bg-rose-900 text-white font-bold rounded">
                     Zašifrovat a odeslat e-mailem
                 </button>
             </div>
