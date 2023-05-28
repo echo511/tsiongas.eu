@@ -56,6 +56,9 @@ const OnePhoto = defineComponent({
                         class: "hover:opacity-80",
                         src: photoMeta.image,
                         alt: photoMeta.title,
+                        sizes: "sm:300px md:340px lg:1280px lx:1920px",
+                        width: photoMeta.width,
+                        height: photoMeta.height,
                     })
                 ])
             ]);
