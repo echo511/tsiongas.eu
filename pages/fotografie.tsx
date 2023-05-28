@@ -33,6 +33,8 @@ const photos: PhotoCollection = {
     }
 };
 
+const screenSizes = "xs:320px sm:640px md:768px lg:1024px xl:1280px xxl:1536px";
+
 const OnePhoto = defineComponent({
     props: {
         photoMeta: {
@@ -56,7 +58,7 @@ const OnePhoto = defineComponent({
                         class: "hover:opacity-80",
                         src: photoMeta.image,
                         alt: photoMeta.title,
-                        sizes: "sm:300px md:340px lg:1280px lx:1920px",
+                        sizes: screenSizes,
                         width: photoMeta.width,
                         height: photoMeta.height,
                     })
@@ -89,9 +91,9 @@ const Gallery = (title: string, photos: PhotoMeta[]) => {
                             class: "",
                             src: photo.image,
                             alt: photo.title,
-                            sizes: "sm:300px md:340px lg:1280px lx:1920px",
-                            width: photo.width,
-                            height: photo.height,
+                            sizes: screenSizes,
+                            // width: photo.width,
+                            // height: photo.height,
                             loading: "lazy",
                         })
                     ])

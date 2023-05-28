@@ -31,11 +31,6 @@ let config: NuxtConfig & { sitemap: {} } = {
   },
   image: {
     dir: "public",
-    screens: {
-      mobile: 640,
-      tablet: 1280,
-      desktop: 1920,
-    },
   },
   sitemap: {
     trailingSlash: true,
