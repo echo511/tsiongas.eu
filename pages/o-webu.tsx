@@ -5,14 +5,14 @@ export default defineComponent({
     setup() {
         return () =>
             <>
-                <div class="py-10 flex flex-col space-y-5 items-start">
+                <div class="p-4 flex flex-col space-y-4 items-start">
                     <div class="w-full max-w-5xl mx-auto px-7 py-5 bg-stone-800 rounded-lg text-gray-100">
                         <h1 class="text-2xl font-bold mb-4">Proč jsem vytvořil tento web?</h1>
-                        <p class="mb-4">
+                        <p>
                             Rozhodl jsem se vytvořit tento web z několika důvodů:
                         </p>
 
-                        <ul class="my-10">
+                        <ul class="my-4">
                             <li class="text-gray-300 mb-2 flex">
                                 <span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">1.</span>
                                 <span class="pl-2 first-letter:inline-block">
@@ -38,21 +38,21 @@ export default defineComponent({
                         </p>
                     </div>
 
-                    <div class="w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-white">
-                        <h2 class="mt-20 text-4xl w-full pb-5 border-b-2 border-stone-800 font-bold mb-4 text-center">Použité technologie</h2>
-                        <div class="mt-10 mb-5 flex flex-row justify-center items-center">
+                    <div class="w-full max-w-7xl mx-auto text-white">
+                        <h2 class="text-4xl w-full pb-5 border-b-2 border-stone-800 font-bold mb-4 text-center">Použité technologie</h2>
+                        <div class="my-8 flex flex-col tablet:flex-row gap-8 justify-center items-center">
                             {[
                                 { src: '/images/o-webu/typescript.svg', alt: 'TypeScript', link: 'https://www.typescriptlang.org/' },
                                 { src: '/images/o-webu/nuxt3.svg', alt: 'Nuxt 3', link: 'https://nuxtjs.org/' },
                                 { src: '/images/o-webu/tailwind-css.svg', alt: 'Tailwind CSS', link: 'https://tailwindcss.com/' },
                                 { src: '/images/o-webu/chatgpt.svg', alt: 'ChatGPT', link: 'https://openai.com/' }
                             ].map((item) => {
-                                return <a target="_blank" href={item.link} class="w-1/4">
+                                return <a target="_blank" href={item.link} class="w-2/3">
                                     {h(NuxtImg, { src: item.src, alt: item.alt, title: item.alt, class: "w-full max-h-14" })}
                                 </a>
                             })}
                         </div>
-                        <div class="mt-10 mb-10 w-full p-4 bg-stone-800 rounded-lg">
+                        <div class="my-8 w-full p-4 bg-stone-800 rounded-lg">
                             <div class="flex flex-col space-y-5">
                                 <p>
                                     <strong>TypeScript</strong>: Typování je jedním z největších problémů jazyka JavaScript. TypeScript je nadstavbou JavaScriptu, která dodává silné typování a umožňuje odhalit chyby v kódu vývojářům při psaní kódu. TypeScript je velmi populární v prostředí Node.js, ale také se často používá v moderních frameworkách, jako je například Angular.

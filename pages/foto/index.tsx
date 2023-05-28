@@ -1,4 +1,5 @@
-import { NuxtImg, NuxtPicture } from "#components";
+import { NuxtImg } from "#components";
+import HeaderBar from "~/components/HeaderBar";
 
 type PhotoMinimal = {
     title: string,
@@ -122,46 +123,48 @@ const FranceGallery = () => {
 export default defineComponent({
     setup() {
         return () => (
-            <div class="p-4 flex flex-col space-y-4">
-                <div class="max-w-5xl mx-auto p-4 bg-stone-800 rounded-lg">
-                    <h1 class="text-2xl font-bold mb-4">Fotografie</h1>
-                    <p class="mb-4">Mé amatérské zájmy v oblasti fotografie byly založeny na mém studiu středoškolské optiky. Od té doby jsem se začal více zajímat o různé druhy fotografování, zejména o:</p>
+            <div>
+                <HeaderBar header="Fotografie" />
 
-                    <ul>
-                        <li class="text-gray-300 mb-2 flex"><span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">1.</span><span class="pl-2 first-letter:inline-block">Fotografování architektury, které mi umožňuje zachytit krásu a jedinečnost různých staveb a jejich architektonických prvků.</span></li>
-                        <li class="text-gray-300 mb-2 flex"><span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">2.</span><span class="pl-2 inline-block">Noční fotografování, které mě fascinuje tím, jak může město a okolní krajina vypadat úplně jinak a nabízí mnoho možností pro experimentování s dlouhými expozičními časy a světelnými efekty.</span></li>
-                        <li class="text-gray-300 mb-2 flex"><span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">3.</span><span class="pl-2 inline-block">Makrofotografie, která umožňuje zachytit detaily a textury, které bychom jinak přehlédli, a umožňuje mi objevovat krásu světa kolem nás na úplně nové úrovni.</span></li>
-                    </ul>
+                <div class="p-4 flex flex-col space-y-4">
+                    <div class="max-w-5xl mx-auto p-4 bg-stone-800 rounded-lg">
+                        <p class="mb-4">Mé amatérské zájmy v oblasti fotografie byly založeny na mém studiu středoškolské optiky. Od té doby jsem se začal více zajímat o různé druhy fotografování, zejména o:</p>
+
+                        <ul>
+                            <li class="text-gray-300 mb-2 flex"><span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">1.</span><span class="pl-2 first-letter:inline-block">Fotografování architektury, které mi umožňuje zachytit krásu a jedinečnost různých staveb a jejich architektonických prvků.</span></li>
+                            <li class="text-gray-300 mb-2 flex"><span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">2.</span><span class="pl-2 inline-block">Noční fotografování, které mě fascinuje tím, jak může město a okolní krajina vypadat úplně jinak a nabízí mnoho možností pro experimentování s dlouhými expozičními časy a světelnými efekty.</span></li>
+                            <li class="text-gray-300 mb-2 flex"><span class="bg-rose-900 text-gray-100 px-2 py-1 rounded-lg font-medium mr-2 inline-block">3.</span><span class="pl-2 inline-block">Makrofotografie, která umožňuje zachytit detaily a textury, které bychom jinak přehlédli, a umožňuje mi objevovat krásu světa kolem nás na úplně nové úrovni.</span></li>
+                        </ul>
+                    </div>
+
+                    <OnePhoto photoMeta={photos.makroVidlicka}>
+                        {{
+                            title: () => 'Makro: Vidlička',
+                            description: () => <>
+                                Rád bych se s vámi podělil o své zážitky z fotografování vidličky pomocí makro techniky.
+                                Pro dosažení co nejvyššího detailu jsem použil klasický objektiv, který jsem na své zrcadlovce otočil naopak, čímž fungoval jako makro objektiv.
+                                Takto jsem mohl vidličku fotografovat z blízka a zachytit úžasné detaily, které bych jinak přehlédl.
+                                Detaily jsem ještě zvýraznil v postprodukci.
+                                Bylo fascinující ve výsledku vidět strukturu kovových proužků vidličky, kterou nelze s běžným okem pozorovat.
+                                Tato zkušenost mě motivovala pokračovat v experimentování s makro fotografií a zkoumat krásu světa kolem nás na zcela nové úrovni.
+                            </>
+                        }}
+                    </OnePhoto>
+
+                    {h(FranceGallery())}
+
+                    <OnePhoto photoMeta={photos.vazka}>
+                        {{
+                            title: () => 'Vážka',
+                            description: () => <>
+                                Krásná zelená vážka s jemnými křídly a dlouhým tělem na balkónovém zábradlí.
+                                Expozice a ohnisková vzdálenost nastaveny pro zachycení všech detailů vážky.
+                                Po zachycení fotografií byla v postprodukci provedena úprava barevnosti,
+                                aby bylo pozadí černobílé a vážka zůstala v původních barvách.
+                            </>
+                        }}
+                    </OnePhoto>
                 </div>
-
-                <OnePhoto photoMeta={photos.makroVidlicka}>
-                    {{
-                        title: () => 'Makro: Vidlička',
-                        description: () => <>
-                            Rád bych se s vámi podělil o své zážitky z fotografování vidličky pomocí makro techniky.
-                            Pro dosažení co nejvyššího detailu jsem použil klasický objektiv, který jsem na své zrcadlovce otočil naopak, čímž fungoval jako makro objektiv.
-                            Takto jsem mohl vidličku fotografovat z blízka a zachytit úžasné detaily, které bych jinak přehlédl.
-                            Detaily jsem ještě zvýraznil v postprodukci.
-                            Bylo fascinující ve výsledku vidět strukturu kovových proužků vidličky, kterou nelze s běžným okem pozorovat.
-                            Tato zkušenost mě motivovala pokračovat v experimentování s makro fotografií a zkoumat krásu světa kolem nás na zcela nové úrovni.
-                        </>
-                    }}
-                </OnePhoto>
-
-                {h(FranceGallery())}
-
-                <OnePhoto photoMeta={photos.vazka}>
-                    {{
-                        title: () => 'Vážka',
-                        description: () => <>
-                            Krásná zelená vážka s jemnými křídly a dlouhým tělem na balkónovém zábradlí.
-                            Expozice a ohnisková vzdálenost nastaveny pro zachycení všech detailů vážky.
-                            Po zachycení fotografií byla v postprodukci provedena úprava barevnosti,
-                            aby bylo pozadí černobílé a vážka zůstala v původních barvách.
-                        </>
-                    }}
-                </OnePhoto>
-
             </div>
         )
     }
