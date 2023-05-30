@@ -9,13 +9,51 @@ const ContactForm = defineComponent(() => {
     const subjectRef = ref('');
     const messageRef = ref('');
 
-    const sendMail = async () => {
+    const createMailtoLink = (subject: string, message: string) => {
         const mail = 'ntsiongas' + '@' + 'gmail.com';
-        const subjectEncoded = encodeURIComponent(subjectRef.value); // encode subject
-        const message = await (await importPgp()).encrypt(messageRef.value);
+        const subjectEncoded = encodeURIComponent(subject); // encode subject
         const messageEncoded = encodeURIComponent(message); // encode message
-        const mailtoLink = `mailto:${mail}?subject=${subjectEncoded}&body=${messageEncoded}`;
-        window.open(mailtoLink); // open email client
+        return `mailto:${mail}?subject=${subjectEncoded}&body=${messageEncoded}`;
+    }
+
+    const message: Ref<null | { encrypted: string }> = ref(null)
+    const copyToClipboardButtonValueDefault = 'Zkopírovat'
+    const copyToClipboardButtonValue = ref(copyToClipboardButtonValueDefault)
+    const openMailClientButtonHref = ref('')
+
+    const encrypt = async () => {
+        const encrypted = await (await importPgp()).encrypt(subjectRef.value + "\n\n" + messageRef.value)
+        message.value = {
+            encrypted
+        }
+        copyToClipboardButtonValue.value = copyToClipboardButtonValueDefault
+        openMailClientButtonHref.value = createMailtoLink(subjectRef.value, encrypted)
+    }
+
+    const copyToClipboard = (content: string) => {
+        // Create a textarea element
+        const textarea = document.createElement('textarea');
+
+        // Set the value of the textarea to the content you want to copy
+        textarea.value = content;
+
+        // Set the position of the textarea offscreen
+        textarea.style.position = 'fixed';
+        textarea.style.top = '0';
+        textarea.style.left = '0';
+        textarea.style.opacity = '0';
+
+        // Append the textarea to the document
+        document.body.appendChild(textarea);
+
+        // Select the content of the textarea
+        textarea.select();
+
+        // Copy the selected content to the clipboard
+        document.execCommand('copy');
+
+        // Remove the textarea from the document
+        document.body.removeChild(textarea);
     }
 
     return () =>
@@ -29,10 +67,27 @@ const ContactForm = defineComponent(() => {
                 <textarea onFocus={importPgp} v-model={messageRef.value} class="px-4 py-2 w-full font-mono bg-white opacity-90 text-gray-900 border border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500" rows="10"></textarea>
             </label>
             <div class="ml-auto">
-                <button onClick={sendMail} class="px-4 py-2 hover:bg-rose-500 bg-rose-900 text-white font-bold rounded">
-                    Zašifrovat a odeslat e-mailem
+                <button onClick={encrypt} class="px-4 py-2 hover:bg-rose-500 bg-rose-900 text-white font-bold rounded">
+                    Zašifrovat
                 </button>
             </div>
+            {message.value === null ? '' : <>
+                <pre class="w-80 tablet:w-full rounded flex overflow-x-scroll bg-stone-800 text-white p-4">
+                    {message.value.encrypted}
+                </pre>
+                <div class="grid tablet:grid-cols-2 gap-4">
+                    <button onClick={() => {
+                        copyToClipboard(message.value?.encrypted ?? '')
+                        copyToClipboardButtonValue.value = 'Zkopírováno'
+                    }} class="w-full px-4 py-2 hover:bg-rose-500 bg-rose-900 text-white font-bold rounded">
+                        {copyToClipboardButtonValue.value}
+                    </button>
+                    <a href={openMailClientButtonHref.value}
+                        class="w-full text-center px-4 py-2 hover:bg-rose-500 bg-rose-600 text-white font-bold rounded">
+                        Poslat emailem
+                    </a>
+                </div>
+            </>}
         </>
 });
 
