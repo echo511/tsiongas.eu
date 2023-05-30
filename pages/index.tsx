@@ -68,7 +68,7 @@ export default defineComponent(() => {
         {
             title: 'Foto',
             link: '/fotografie/',
-            image: '/images/photo.jpeg',
+            image: '/images/photo.png',
         },
         {
             title: 'PKM',
@@ -111,7 +111,7 @@ export default defineComponent(() => {
                     <div class="flex flex-row flex-wrap place-content-center gap-8">
                         {() => {
                             let classes = 'mx-auto md:m-0 w-32 h-32 rounded-xl transition duration-200'
-                            const passiveClasses = classes + ' opacity-50 rotate-0 scale-95'
+                            const passiveClasses = classes + ' opacity-100 rotate-0 scale-95'
                             const activeClasses = classes + ' opacity-100 rotate-45 scale-[0.6]'
 
                             return zajmy.map(([image, state]) => {
