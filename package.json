@@ -9,14 +9,15 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "fs": "0.0.1-security",
-    "image-size": "^1.0.2",
-    "@nuxt/kit": "link:@nuxt/kit-edge@latest",
     "@nuxt/image-edge": "1.0.0-28085504.69f8eb0",
+    "@nuxt/kit": "link:@nuxt/kit-edge@latest",
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@types/openpgp": "^4.4.18",
+    "fs": "0.0.1-security",
+    "image-size": "^1.0.2",
     "nuxt": "^3.5.1",
+    "nuxt-gtag": "^0.5.7",
     "nuxt-simple-sitemap": "^2.6.1",
     "openpgp": "^5.9.0",
     "utility-types": "^3.10.0"

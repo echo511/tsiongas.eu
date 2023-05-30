@@ -8,7 +8,11 @@ let config: NuxtConfig & { sitemap: {} } = {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/robots",
     "nuxt-simple-sitemap",
+    "nuxt-gtag"
   ],
+  gtag: {
+    id: 'G-0M8K3JDDR3',
+  },
   tailwindcss: {
     config: {
       content: [
