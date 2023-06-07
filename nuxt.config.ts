@@ -42,7 +42,7 @@ let config: NuxtConfig & { sitemap: {} } = {
   robots: {
     configPath: "robots.config.ts"
   },
-}
+} 
 
 if (process.env.SITE_URL) {
   config.sitemap.siteUrl = process.env.SITE_URL;
