@@ -91,6 +91,8 @@ const ContactForm = defineComponent(() => {
         </>
 }); 
 
+const vercelForce = 1;
+
 // Setup anchors that will be used to scroll to specific section
 const { anchors, scroll } = useAnchors({
     "Vizitka": { scrollLogicalPosition: "center" },
