@@ -1,6 +1,6 @@
 export default [
   { UserAgent: "*" },
-  { Allow: "*" },
+  { Allow: "/" },
   { BlankLine: true },
   { Sitemap: (req: any) => `https://${req.headers.host}/sitemap.xml` }
 ];
