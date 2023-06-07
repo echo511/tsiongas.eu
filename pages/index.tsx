@@ -89,7 +89,7 @@ const ContactForm = defineComponent(() => {
                 </div>
             </>}
         </>
-});
+}); 
 
 // Setup anchors that will be used to scroll to specific section
 const { anchors, scroll } = useAnchors({
